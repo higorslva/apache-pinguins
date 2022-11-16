@@ -1,0 +1,25 @@
+<?php
+$servername = "localhost";
+$database = "server";
+$username = "pinguins";
+$password = "pinguins789";
+$data_name = "usuarios";
+
+// Create connection
+$conn = mysql_connect($servername, $username, $password, $database);
+// Check connection
+if (!$conn) {
+	die("Connection failed: " . mysqli_connect_error());
+	echo "Chegou aqui";
+}
+echo "Connected successfully";
+$verifica = msql_query("select * from usuarios where login =
+    '$login' and senha = '$senha'") or die("erro ao selecionar");
+      if (mysqli_num_rows($verifica)<=0){
+        echo"<script language='javascript' type='text/javascript'>
+        alert('Login e/ou senha incorretos');window.location
+        .href='login.html';</script>";
+        die();
+
+mysqli_close($conn);
+?>
